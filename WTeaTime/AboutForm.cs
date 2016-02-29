@@ -112,12 +112,17 @@ namespace WTeaTime
             mainForm.resetAboutForm();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lblLinkAuthor(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("mailto:marco.celani@hotmail.it");
         }
 
-        private void lblFlickr_Click(object sender, EventArgs e)
+        private void picOctocat_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/marcocelani/WTeaTime/");
+        }
+
+        private void picFlickr_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.flickr.com/photos/mackoooo");
         }

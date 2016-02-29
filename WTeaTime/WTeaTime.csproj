@@ -138,6 +138,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Images\icon.png" />
+    <Content Include="Database\DB.sql" />
+    <Content Include="Resources\Images\Octocat.jpg" />
     <Content Include="Resources\Images\white-im-on-flickr.png" />
     <EmbeddedResource Include="ds.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
