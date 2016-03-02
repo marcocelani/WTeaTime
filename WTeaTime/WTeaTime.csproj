@@ -92,6 +92,11 @@
     </Compile>
     <Compile Include="Model\TeaContext.cs" />
     <Compile Include="Model\TeaEntity.cs" />
+    <Compile Include="Resources\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="StartForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,19 +114,13 @@
     <EmbeddedResource Include="ConfigurationForm.resx">
       <DependentUpon>ConfigurationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="StartForm.resx">
       <DependentUpon>StartForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\WTeaTime.Model.TeaEntityRow.datasource" />
     <None Include="Properties\Settings.settings">
@@ -138,10 +137,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Images\icon.png" />
     <Content Include="Database\DB.sql" />
-    <Content Include="Resources\Images\Octocat.jpg" />
-    <Content Include="Resources\Images\white-im-on-flickr.png" />
+    <None Include="Resources\anonymous.png" />
+    <None Include="Resources\stop.png" />
+    <None Include="Resources\info.png" />
+    <None Include="Resources\configuration.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\icon.ico" />
+    <None Include="Resources\white-im-on-flickr.png" />
+    <None Include="Resources\Octocat.jpg" />
+    <None Include="Resources\icon.png" />
     <EmbeddedResource Include="ds.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -149,7 +154,6 @@
       <DependentUpon>ds.mdf</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\Icons\icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

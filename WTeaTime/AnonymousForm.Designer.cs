@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AnonymousForm));
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtMessage = new System.Windows.Forms.TextBox();
             this.chkMessage = new System.Windows.Forms.CheckBox();
@@ -36,12 +35,12 @@
             this.txtAction = new System.Windows.Forms.TextBox();
             this.chkAction = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnStart = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.numMinutes = new System.Windows.Forms.NumericUpDown();
             this.numSecs = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numMinutes)).BeginInit();
@@ -117,26 +116,6 @@
             this.panel2.Size = new System.Drawing.Size(582, 52);
             this.panel2.TabIndex = 5;
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(170, 196);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 7;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnStart
-            // 
-            this.btnStart.Location = new System.Drawing.Point(16, 196);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(87, 23);
-            this.btnStart.TabIndex = 6;
-            this.btnStart.Text = "Run!";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -171,6 +150,26 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Minutes:";
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(170, 196);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 7;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnStart
+            // 
+            this.btnStart.Location = new System.Drawing.Point(16, 196);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(87, 23);
+            this.btnStart.TabIndex = 6;
+            this.btnStart.Text = "Run!";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
             // AnonymousForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,7 +180,6 @@
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AnonymousForm";

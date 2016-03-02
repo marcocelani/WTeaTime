@@ -27,7 +27,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblName = new System.Windows.Forms.Label();
             this.lblAuthor = new System.Windows.Forms.Label();
@@ -64,7 +63,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(241, 181);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(258, 181);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // lblName
@@ -108,7 +107,7 @@
             // picOctocat
             // 
             this.picOctocat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picOctocat.Image = global::WTeaTime.Properties.Resources.Octocat;
+            this.picOctocat.Image = global::WTeaTime.Resources.Resources.Octocat;
             this.picOctocat.Location = new System.Drawing.Point(132, 54);
             this.picOctocat.Name = "picOctocat";
             this.picOctocat.Size = new System.Drawing.Size(109, 50);
@@ -119,7 +118,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::WTeaTime.Properties.Resources.icon;
+            this.pictureBox1.Image = global::WTeaTime.Resources.Resources.icon;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 32);
@@ -139,7 +138,7 @@
             // picFlickr
             // 
             this.picFlickr.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picFlickr.Image = global::WTeaTime.Properties.Resources.white_im_on_flickr;
+            this.picFlickr.Image = global::WTeaTime.Resources.Resources.white_im_on_flickr;
             this.picFlickr.Location = new System.Drawing.Point(132, 110);
             this.picFlickr.Name = "picFlickr";
             this.picFlickr.Size = new System.Drawing.Size(109, 42);
@@ -152,10 +151,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(265, 198);
+            this.ClientSize = new System.Drawing.Size(282, 198);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AboutForm";

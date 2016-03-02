@@ -18,6 +18,7 @@ namespace WTeaTime
         public AnonymousForm(StartForm parent)
         {
             InitializeComponent();
+            Icon = Resources.Resources.icon1;
             mainForm = parent;
         }
 

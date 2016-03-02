@@ -22,6 +22,7 @@ namespace WTeaTime
             teaEntities = te;
             context = ctx;
             InitializeComponent();
+            Icon = Resources.Resources.icon1;
             dataGridView1.DataSource = teaEntities;
             mainForm = parent;
             this.FormClosing += new FormClosingEventHandler(formClosingEvent);

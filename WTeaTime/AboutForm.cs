@@ -16,6 +16,7 @@ namespace WTeaTime
         public AboutForm(StartForm form)
         {
             InitializeComponent();
+            Icon = Resources.Resources.icon1;
             Text = string.Format("About {0}", AssemblyTitle);
             lblName.Text = Application.ProductName + " " + AssemblyVersion;
             mainForm = form;

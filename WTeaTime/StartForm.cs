@@ -43,6 +43,7 @@ namespace WTeaTime
 
             ToolStripMenuItem mnuName = new ToolStripMenuItem(Application.ProductName);
             mnuName.Click += new EventHandler(mnuNameAction_Click);
+            mnuName.Image = Resources.Resources.info;
             contextMenu.Items.Add(mnuName);
             contextMenu.Items.Add(new ToolStripSeparator());
 
@@ -69,6 +70,7 @@ namespace WTeaTime
             };
             mnuStop.Click += new EventHandler(mnuStopAction_Click);
             mnuStop.Enabled = false;
+            mnuStop.Image = Resources.Resources.stop;
             toEnableMenus.Add(mnuStop);
             contextMenu.Items.Add(mnuStop);
 
@@ -78,6 +80,7 @@ namespace WTeaTime
                 Text = "Anonymous..."
             };
             mnuAnonymous.Click += new EventHandler(mnuAnonymousAction_Click);
+            mnuAnonymous.Image = Resources.Resources.anonymous;
             contextMenu.Items.Add(mnuAnonymous);
             //toDisableMenus.Add(mnuAnonymous);
             this.mnuAnonymous = mnuAnonymous;
@@ -89,12 +92,14 @@ namespace WTeaTime
                 Text = "Configure..."
             };
             mnuConfigure.Click += new EventHandler(mnuConfigureAction_Click);
+            mnuConfigure.Image = Resources.Resources.configuration;
             contextMenu.Items.Add(mnuConfigure);
             toDisableMenus.Add(mnuConfigure);
 
             contextMenu.Items.Add(new ToolStripSeparator());
             ToolStripMenuItem mnuExit = new ToolStripMenuItem();
             mnuExit.Text = "Exit";
+            mnuExit.Image = Resources.Resources.close;
             mnuExit.Click += new EventHandler(mnuExit_Click);
             contextMenu.Items.Add(mnuExit);
         }
