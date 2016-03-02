@@ -127,5 +127,10 @@ namespace WTeaTime
         {
             System.Diagnostics.Process.Start("http://www.flickr.com/photos/mackoooo");
         }
+
+        private void picLicense_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.gnu.org/licenses/gpl.html");
+        }
     }
 }

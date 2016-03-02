@@ -36,10 +36,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.picFlickr = new System.Windows.Forms.PictureBox();
+            this.lblLicense = new System.Windows.Forms.Label();
+            this.picLicense = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picOctocat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFlickr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLicense)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -48,22 +51,27 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.lblName, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblAuthor, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblLAuthor, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblHomePage, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.picOctocat, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.picFlickr, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.picFlickr, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.lblLicense, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.picLicense, 2, 5);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(258, 181);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(256, 229);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // lblName
@@ -141,17 +149,38 @@
             this.picFlickr.Image = global::WTeaTime.Resources.Resources.white_im_on_flickr;
             this.picFlickr.Location = new System.Drawing.Point(132, 110);
             this.picFlickr.Name = "picFlickr";
-            this.picFlickr.Size = new System.Drawing.Size(109, 42);
+            this.picFlickr.Size = new System.Drawing.Size(109, 32);
             this.picFlickr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picFlickr.TabIndex = 8;
             this.picFlickr.TabStop = false;
             this.picFlickr.Click += new System.EventHandler(this.picFlickr_Click);
             // 
+            // lblLicense
+            // 
+            this.lblLicense.AutoSize = true;
+            this.lblLicense.Location = new System.Drawing.Point(41, 145);
+            this.lblLicense.Name = "lblLicense";
+            this.lblLicense.Size = new System.Drawing.Size(47, 13);
+            this.lblLicense.TabIndex = 9;
+            this.lblLicense.Text = "License:";
+            // 
+            // picLicense
+            // 
+            this.picLicense.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picLicense.Image = global::WTeaTime.Resources.Resources.gplv3;
+            this.picLicense.Location = new System.Drawing.Point(132, 148);
+            this.picLicense.Name = "picLicense";
+            this.picLicense.Size = new System.Drawing.Size(100, 50);
+            this.picLicense.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLicense.TabIndex = 10;
+            this.picLicense.TabStop = false;
+            this.picLicense.Click += new System.EventHandler(this.picLicense_Click);
+            // 
             // AboutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 198);
+            this.ClientSize = new System.Drawing.Size(270, 247);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -167,6 +196,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picOctocat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFlickr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLicense)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -182,5 +212,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox picFlickr;
+        private System.Windows.Forms.Label lblLicense;
+        private System.Windows.Forms.PictureBox picLicense;
     }
 }
