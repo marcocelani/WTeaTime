@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace WTeaTime
         private TeaEntityRow[] teaEntities;
         private StartForm mainForm;
         TeaContext context;
+        private const string REGISTRY_KEY_RUN = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
 
         public ConfigurationForm(TeaEntityRow[] te, TeaContext ctx, StartForm parent)
         {
@@ -26,6 +28,12 @@ namespace WTeaTime
             dataGridView1.DataSource = teaEntities;
             mainForm = parent;
             this.FormClosing += new FormClosingEventHandler(formClosingEvent);
+
+            chkStartUp.Checked =
+                Registry.CurrentUser
+                    .OpenSubKey(REGISTRY_KEY_RUN, true).GetValue(Application.ProductName) == null ? false : true;
+
+
         }
 
         private void formClosingEvent(object sender, FormClosingEventArgs e)
@@ -97,7 +105,7 @@ namespace WTeaTime
                 MessageBox.Show("Name is empty.", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            
+
             TeaEntityRow tea = context.TeaEntity.Find(txtName.Text.Trim());
             if (tea == null)
             {
@@ -119,6 +127,28 @@ namespace WTeaTime
             teaEntities = (from t in context.TeaEntity
                            select t).ToArray();
             dataGridView1.DataSource = teaEntities;
+        }
+
+        private void chkStartUp_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chkStartUp.Checked)
+                {
+                    Registry.CurrentUser
+                        .OpenSubKey(REGISTRY_KEY_RUN, true)
+                        .SetValue(Application.ProductName, Application.ExecutablePath.ToString());
+                }
+                else
+                {
+                    Registry.CurrentUser
+                       .OpenSubKey(REGISTRY_KEY_RUN, true)
+                       .DeleteValue(Application.ProductName, true);
+                }
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

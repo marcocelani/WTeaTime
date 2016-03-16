@@ -50,6 +50,8 @@
             this.btnNew = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.chkStartUp = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teaEntityRowBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
@@ -57,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numSecs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMinutes)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -113,6 +116,7 @@
             // 
             // panel3
             // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.txtMessage);
             this.panel3.Controls.Add(this.chkMessage);
             this.panel3.Controls.Add(this.chkBeep);
@@ -255,12 +259,33 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.chkStartUp);
+            this.panel4.Location = new System.Drawing.Point(13, 228);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(582, 25);
+            this.panel4.TabIndex = 4;
+            // 
+            // chkStartUp
+            // 
+            this.chkStartUp.AutoSize = true;
+            this.chkStartUp.Location = new System.Drawing.Point(4, 3);
+            this.chkStartUp.Name = "chkStartUp";
+            this.chkStartUp.Size = new System.Drawing.Size(143, 17);
+            this.chkStartUp.TabIndex = 0;
+            this.chkStartUp.Text = "Run on Windows startup";
+            this.chkStartUp.UseVisualStyleBackColor = true;
+            this.chkStartUp.CheckedChanged += new System.EventHandler(this.chkStartUp_CheckedChanged);
+            // 
             // ConfigurationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(610, 233);
+            this.ClientSize = new System.Drawing.Size(610, 260);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -279,6 +304,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numMinutes)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -306,5 +333,7 @@
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.CheckBox chkStartUp;
     }
 }

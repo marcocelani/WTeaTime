@@ -29,10 +29,23 @@ namespace WTeaTime
         public StartForm()
         {
             InitializeComponent();
+            InitializeData();
             InitializeMenu();
 
             notifyIcon1.BalloonTipText = Application.ProductName;
             notifyIcon1.BalloonTipTitle = Application.ProductName;
+        }
+
+        private void InitializeData()
+        {
+            try {
+                TeaEntities = (from t in db.TeaEntity
+                               select t).ToArray();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void InitializeMenu()
@@ -46,9 +59,6 @@ namespace WTeaTime
             mnuName.Image = Resources.Resources.info;
             contextMenu.Items.Add(mnuName);
             contextMenu.Items.Add(new ToolStripSeparator());
-
-            TeaEntities = (from t in db.TeaEntity
-                           select t).ToArray();
 
             foreach (TeaEntityRow t in TeaEntities)
             {
