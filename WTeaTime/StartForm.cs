@@ -14,12 +14,11 @@ namespace WTeaTime
 {
     public partial class StartForm : Form
     {
-        private TeaContext db = new TeaContext();
-        private TeaEntityRow[] TeaEntities;
+        private TeaContext db;
         private int seconds_elasped = 0;
         private int total_time = 0;
         private bool isStarted = false;
-        private TeaEntityRow selected;
+        private TeaEntity selected;
         private List<ToolStripMenuItem> toEnableMenus = new List<ToolStripMenuItem>();
         private List<ToolStripMenuItem> toDisableMenus = new List<ToolStripMenuItem>();
         private ToolStripMenuItem current;
@@ -29,23 +28,13 @@ namespace WTeaTime
         public StartForm()
         {
             InitializeComponent();
-            InitializeData();
+
+            db = new TeaContext();
+
             InitializeMenu();
 
             notifyIcon1.BalloonTipText = Application.ProductName;
             notifyIcon1.BalloonTipTitle = Application.ProductName;
-        }
-
-        private void InitializeData()
-        {
-            try {
-                TeaEntities = (from t in db.TeaEntity
-                               select t).ToArray();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.StackTrace, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void InitializeMenu()
@@ -60,7 +49,7 @@ namespace WTeaTime
             contextMenu.Items.Add(mnuName);
             contextMenu.Items.Add(new ToolStripSeparator());
 
-            foreach (TeaEntityRow t in TeaEntities)
+            foreach (TeaEntity t in db.lstTeas)
             {
                 ToolStripMenuItem mnuItem = new ToolStripMenuItem();
                 mnuItem.Name = t.Title;
@@ -146,7 +135,7 @@ namespace WTeaTime
 
         private void mnuConfigureAction_Click(object sender, EventArgs e)
         {
-            new ConfigurationForm(TeaEntities, db, this).ShowDialog();
+            new ConfigurationForm(db, this).ShowDialog();
         }
 
         private void mnuAnonymousAction_Click(object sender, EventArgs e)
@@ -170,7 +159,7 @@ namespace WTeaTime
         {
             if (isStarted) return;
             current = (ToolStripMenuItem)sender;
-            selected = (TeaEntityRow)current.Tag;
+            selected = (TeaEntity)current.Tag;
             current.Font = new Font(FontFamily.GenericSansSerif, 8, FontStyle.Bold);
             switchMenus();
             timer.Interval = 1000;
@@ -180,7 +169,7 @@ namespace WTeaTime
             timer.Start();
         }
 
-        public void AnonymousAction(AnonymousForm form, TeaEntityRow entity)
+        public void AnonymousAction(AnonymousForm form, TeaEntity entity)
         {
             if (form == null) return;
             if (entity == null) return;
@@ -239,7 +228,7 @@ namespace WTeaTime
             current.Text = selected.Title + convertToMinSec(total_time - seconds_elasped);
         }
 
-        private void RunAction(TeaEntityRow tea)
+        private void RunAction(TeaEntity tea)
         {
             if (tea == null) return;
             if (tea.Beep)

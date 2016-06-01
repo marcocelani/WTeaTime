@@ -14,26 +14,22 @@ namespace WTeaTime
 {
     public partial class ConfigurationForm : Form
     {
-        private TeaEntityRow[] teaEntities;
         private StartForm mainForm;
         TeaContext context;
         private const string REGISTRY_KEY_RUN = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
 
-        public ConfigurationForm(TeaEntityRow[] te, TeaContext ctx, StartForm parent)
+        public ConfigurationForm(TeaContext ctx, StartForm parent)
         {
-            teaEntities = te;
             context = ctx;
             InitializeComponent();
             Icon = Resources.Resources.icon1;
-            dataGridView1.DataSource = teaEntities;
+            dataGridView1.DataSource = ctx.lstTeas;
             mainForm = parent;
             this.FormClosing += new FormClosingEventHandler(formClosingEvent);
 
             chkStartUp.Checked =
                 Registry.CurrentUser
                     .OpenSubKey(REGISTRY_KEY_RUN, true).GetValue(Application.ProductName) == null ? false : true;
-
-
         }
 
         private void formClosingEvent(object sender, FormClosingEventArgs e)
@@ -43,7 +39,7 @@ namespace WTeaTime
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            TeaEntityRow entity = teaEntities[((DataGridView)sender).CurrentRow.Index];
+            TeaEntity entity = context.lstTeas[((DataGridView)sender).CurrentRow.Index];
             txtName.Text = entity.Title;
             numSecs.Value = entity.Sec;
             numMinutes.Value = entity.Min;
@@ -73,13 +69,11 @@ namespace WTeaTime
                 return;
             }
 
-            TeaEntityRow tea = (from t in context.TeaEntity
-                                                 .Where(x => x.Title.Equals(txtName.Text.Trim()))
-                                select t).FirstOrDefault();
+            TeaEntity tea = context.Find(txtName.Text.Trim());
             if (tea == null)
             {
                 isNew = true;
-                tea = new TeaEntityRow();
+                tea = new TeaEntity();
             }
 
             tea.Title = txtName.Text.Trim();
@@ -92,7 +86,7 @@ namespace WTeaTime
             tea.RunAction = chkAction.Checked;
 
             if (isNew)
-                context.TeaEntity.Add(tea);
+                context.lstTeas.Add(tea);
             context.SaveChanges();
 
             reloadEntities();
@@ -106,7 +100,7 @@ namespace WTeaTime
                 return;
             }
 
-            TeaEntityRow tea = context.TeaEntity.Find(txtName.Text.Trim());
+            TeaEntity tea = context.Find(txtName.Text.Trim());
             if (tea == null)
             {
                 MessageBox.Show("Tea exists or is newer?", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -116,7 +110,7 @@ namespace WTeaTime
             if (MessageBox.Show("Do you want delete \"" + tea.Title + "\"", "Delete?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                 return;
 
-            context.TeaEntity.Remove(tea);
+            context.lstTeas.Remove(tea);
             context.SaveChanges();
 
             reloadEntities();
@@ -124,9 +118,10 @@ namespace WTeaTime
 
         private void reloadEntities()
         {
-            teaEntities = (from t in context.TeaEntity
-                           select t).ToArray();
-            dataGridView1.DataSource = teaEntities;
+            teaEntityRowBindingSource.Clear();
+            teaEntityRowBindingSource.DataSource = context.lstTeas;
+            dataGridView1.DataSource = teaEntityRowBindingSource;
+            mainForm.updateMenu(this);
         }
 
         private void chkStartUp_CheckedChanged(object sender, EventArgs e)
@@ -145,7 +140,8 @@ namespace WTeaTime
                        .OpenSubKey(REGISTRY_KEY_RUN, true)
                        .DeleteValue(Application.ProductName, true);
                 }
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.StackTrace, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

@@ -31,7 +31,7 @@ namespace WTeaTime
                 return;
             }
 
-            TeaEntityRow tea = new TeaEntityRow();
+            TeaEntity tea = new TeaEntity();
             tea.Title = "Anonymous";
             tea.Min = (int)numMinutes.Value;
             tea.Sec = (int)numSecs.Value;

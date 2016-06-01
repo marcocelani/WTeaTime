@@ -1,4 +1,7 @@
-﻿namespace WTeaTime
+﻿using System.Collections.Generic;
+using WTeaTime.Model;
+
+namespace WTeaTime
 {
     partial class ConfigurationForm
     {
@@ -30,9 +33,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.minDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.secDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teaEntityRowBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -69,9 +72,9 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.titleDataGridViewTextBoxColumn,
-            this.minDataGridViewTextBoxColumn,
-            this.secDataGridViewTextBoxColumn});
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
             this.dataGridView1.DataSource = this.teaEntityRowBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -81,30 +84,30 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
-            // titleDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn1
             // 
-            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
-            this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
-            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
-            this.titleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Title";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Title";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // minDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn2
             // 
-            this.minDataGridViewTextBoxColumn.DataPropertyName = "Min";
-            this.minDataGridViewTextBoxColumn.HeaderText = "Min";
-            this.minDataGridViewTextBoxColumn.Name = "minDataGridViewTextBoxColumn";
-            this.minDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Min";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Min";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // secDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn3
             // 
-            this.secDataGridViewTextBoxColumn.DataPropertyName = "Sec";
-            this.secDataGridViewTextBoxColumn.HeaderText = "Sec";
-            this.secDataGridViewTextBoxColumn.Name = "secDataGridViewTextBoxColumn";
-            this.secDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Sec";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Sec";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // teaEntityRowBindingSource
             // 
-            this.teaEntityRowBindingSource.DataSource = typeof(WTeaTime.Model.TeaEntityRow);
+            this.teaEntityRowBindingSource.DataSource = typeof(WTeaTime.Model.TeaEntity);
             // 
             // panel1
             // 
@@ -201,15 +204,30 @@
             // 
             // numSecs
             // 
-            this.numSecs.Location = new System.Drawing.Point(184, 28);
+            this.numSecs.Location = new System.Drawing.Point(153, 28);
+            this.numSecs.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
             this.numSecs.Name = "numSecs";
-            this.numSecs.Size = new System.Drawing.Size(45, 20);
+            this.numSecs.Size = new System.Drawing.Size(76, 20);
             this.numSecs.TabIndex = 3;
             this.numSecs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numSecs.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // numMinutes
             // 
             this.numMinutes.Location = new System.Drawing.Point(49, 32);
+            this.numMinutes.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.numMinutes.Name = "numMinutes";
             this.numMinutes.Size = new System.Drawing.Size(45, 20);
             this.numMinutes.TabIndex = 4;
@@ -218,7 +236,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(131, 30);
+            this.label3.Location = new System.Drawing.Point(100, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 5;
@@ -313,9 +331,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn minDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn secDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource teaEntityRowBindingSource;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
@@ -335,5 +350,8 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.CheckBox chkStartUp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }

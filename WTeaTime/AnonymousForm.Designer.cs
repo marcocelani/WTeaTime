@@ -128,18 +128,33 @@
             // numMinutes
             // 
             this.numMinutes.Location = new System.Drawing.Point(49, 16);
+            this.numMinutes.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.numMinutes.Name = "numMinutes";
-            this.numMinutes.Size = new System.Drawing.Size(45, 20);
+            this.numMinutes.Size = new System.Drawing.Size(71, 20);
             this.numMinutes.TabIndex = 4;
             this.numMinutes.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // numSecs
             // 
             this.numSecs.Location = new System.Drawing.Point(184, 14);
+            this.numSecs.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
             this.numSecs.Name = "numSecs";
-            this.numSecs.Size = new System.Drawing.Size(45, 20);
+            this.numSecs.Size = new System.Drawing.Size(72, 20);
             this.numSecs.TabIndex = 3;
             this.numSecs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numSecs.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label2
             // 
